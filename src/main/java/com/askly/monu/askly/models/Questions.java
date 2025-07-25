@@ -1,6 +1,6 @@
 package com.askly.monu.askly.models;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Set;
@@ -13,8 +13,15 @@ public class Questions extends BaseModel {
 
     private String content;
 
-
+    @ManyToMany
+    @JoinTable(
+        name = "questions_tags",
+        joinColumns = @jakarta.persistence.JoinColumn(name = "question_id"),
+        inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "tag_id")
+    )
     private Set<Tag> tags;
 
+    @ManyToOne
+    @JoinColumn(name= "user_id")
     private User user;
 }
