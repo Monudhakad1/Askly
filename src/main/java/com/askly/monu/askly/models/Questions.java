@@ -9,16 +9,16 @@ import java.util.Set;
 @Data
 public class Questions extends BaseModel {
 
-    private String title;
 
     private String content;
 
     @ManyToMany
     @JoinTable(
         name = "questions_tags",
-        joinColumns = @jakarta.persistence.JoinColumn(name = "question_id"),
-        inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "tag_id")
+        joinColumns = @JoinColumn(name = "question_id"),
+        inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
+
     private Set<Tag> tags;
 
     @ManyToOne
