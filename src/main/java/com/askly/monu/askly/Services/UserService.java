@@ -3,6 +3,7 @@ package com.askly.monu.askly.Services;
 import com.askly.monu.askly.DTO.UserDto;
 import com.askly.monu.askly.Repositories.TagRepo;
 import com.askly.monu.askly.Repositories.UserRepo;
+import com.askly.monu.askly.models.Tag;
 import com.askly.monu.askly.models.User;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,12 @@ public class UserService {
     public Optional<User> getUserById(Long id) {
         return userRepo.findById(id);
     }
-
+    public void followTag(Long userId, Long tagId) {
+        User user = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        Tag tag = tagRepo.findById(tagId).orElseThrow(() -> new RuntimeException("Tag not found"));
+        user.getFollowedTags().add(tag);
+        userRepo.save(user);
+    }
     public User createUser(UserDto userDto) {
         User user = new User();
         user.setUsername(userDto.getUsername());

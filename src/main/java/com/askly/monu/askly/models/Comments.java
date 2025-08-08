@@ -1,9 +1,10 @@
 package com.askly.monu.askly.models;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Set;
-
+@Data
 @Entity
 public class Comments extends BaseModel{
     //One answer have many comments

@@ -1,7 +1,9 @@
 package com.askly.monu.askly.DTO;
 
-import java.util.Set;
+import lombok.Data;
 
+import java.util.Set;
+@Data
 public class CommentDto {
     private Long id;
     private String content;

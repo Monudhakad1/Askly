@@ -9,7 +9,7 @@ import java.util.Set;
 @Data
 public class Questions extends BaseModel {
 
-
+    private String title;
     private String content;
 
     @ManyToMany
