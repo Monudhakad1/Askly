@@ -12,6 +12,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
+    // @Autowired is used to inject the UserService dependency (Like contructor injection for the service class that , I have implemented)
     @Autowired
     private UserService userService;
 
